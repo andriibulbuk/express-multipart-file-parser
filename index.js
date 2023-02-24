@@ -8,7 +8,7 @@ const fileParser = ({ rawBodyOptions, busboyOptions } = {}) => [(req, res, next)
   if (req.rawBody === undefined && allowedMethods.includes(req.method) && type && type.startsWith('multipart/form-data')) {
     getRawBody(req, Object.assign({
       length: req.headers['content-length'],
-      limit: '10mb',
+      limit: '70000mb',
       encoding: contentType.parse(req).parameters.charset,
     }, rawBodyOptions), (err, rawBody) => {
       if (err) next(err)
